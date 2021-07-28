@@ -8,10 +8,13 @@ def appendChildList(hwnd, param):
 
 class Handler():
 
-    def __init__(self):
-        self.hwnd = win32gui.FindWindow(None, "MAKE3")
-        win32gui.EnumChildWindows(self.hwnd, appendChildList, None)
-        self.hwnd = list[0]
+    def __init__(self, name):
+        self.warpHwnd = win32gui.FindWindow(None, name)
+        win32gui.EnumChildWindows(self.warpHwnd, appendChildList, None)
+        self.contentHwnd = list[0]
 
-    def getHandle(self):
-        return self.hwnd
+    def getWarpHandle(self):
+        return self.warpHwnd
+
+    def getContentHandle(self):
+        return self.contentHwnd
