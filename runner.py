@@ -5,23 +5,18 @@ import item
 import handler
 import event
 import win32gui
-import pyautogui
 import time
+import pytesseract
+import win32ui
+
 from PIL import Image
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-
 from PIL.ImageQt import ImageQt
-import pytesseract
-
-import win32ui
 from ctypes import windll
-import re
-
  
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-
 
 class Runner(QThread):
 

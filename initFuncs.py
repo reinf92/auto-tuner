@@ -1,4 +1,3 @@
-from PyQt5.QtGui import QPalette
 from PyQt5.QtWidgets import *
 
 def initWindow(self):
