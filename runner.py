@@ -27,6 +27,13 @@ class Runner(QThread):
         self.failedLables = [app.failed1, app.failed2, app.failed3, app.failed4, app.failed5, app.failed6, app.failed7]
 
     def run(self):
+
+        for label in self.itemLables:
+            label.setText('0(100)')
+
+        for i in range(0, 7):
+            self.failedLables[i].setText('v' + str(i + 1) + '(0)')
+
         self.hwnd = handler.Handler(self.app.name)
         self.evnet = event.Event(self.hwnd.getContentHandle(), self.app.radioValue)
         self.status = True
@@ -98,6 +105,7 @@ class Runner(QThread):
 
                     items[i].reset()
                 else:
+                    self.updateMessage('item', i, items[i]);
                     transaction = False
 
         self.app.btn1.setDisabled(False)

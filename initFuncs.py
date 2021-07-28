@@ -25,8 +25,6 @@ def initDialog(self):
     self.dialog.lable2 = QLabel('2. 블루스택 사이즈를 ReadMe 대화 상자와 동일하게 맞추어주세요.', self.dialog)
     self.dialog.lable2.move(50,80)
 
-    
-
     self.dialog.lable3 = QLabel('Shr.cell', self.dialog)
     self.dialog.lable3.move(820,460)
 
@@ -58,21 +56,21 @@ def initTextEdits(self):
 
     self.levelOfItemsValue = QLineEdit(self)
     self.levelOfItemsValue.move(200, 210)
-    self.levelOfItemsValue.resize(70,20)
+    self.levelOfItemsValue.resize(120,20)
     self.levelOfItemsValue.setMaxLength(1)
     self.levelOfItemsValue.setText('7')
     self.levelOfItemsValue.setPlaceholderText("ex)7")
     
     self.stopWhenNumOfItemsValue = QLineEdit(self)
     self.stopWhenNumOfItemsValue.move(200, 240)
-    self.stopWhenNumOfItemsValue.resize(70,20)
+    self.stopWhenNumOfItemsValue.resize(120,20)
     self.stopWhenNumOfItemsValue.setMaxLength(1)
     self.stopWhenNumOfItemsValue.setText('8')
     self.stopWhenNumOfItemsValue.setPlaceholderText("ex)8")
 
 
 def initRadioButtons(self):
-    self.groupBox = QGroupBox('Location', self)
+    self.groupBox = QGroupBox('Shop Location', self)
     self.groupBox.move(10, 290)
     self.groupBox.resize(310, 50)
 
@@ -99,9 +97,9 @@ def initRadioButtons(self):
 
     
 def initStatusLabels(self):
-    self.inventoryArea = QLabel('Inventory', self)
-    self.inventoryArea.move(380, 20)
-    self.inventoryArea.setStyleSheet("font-weight: bold; font-size:18px; font-family:Malgun Gothic;")
+    self.trunkArea = QLabel('Trunk', self)
+    self.trunkArea.move(400, 20)
+    self.trunkArea.setStyleSheet("font-weight: bold; font-size:18px; font-family:Malgun Gothic;")
 
     self.failedArea = QLabel('Failed', self)
     self.failedArea.move(500, 20)

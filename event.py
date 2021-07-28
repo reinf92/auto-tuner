@@ -4,6 +4,8 @@ import time
 
 BUY_POINT = (120 << 16) | 50
 SELL_POINT = (120 << 16) | 120
+SELL_OK_POINT = (225 << 16) | 450
+SELL_OK_POINT2 = (285 << 16) | 385
 TUNE_POINT = (120 << 16)| 190
 OK_POINT = (230 << 16) | 450
 BOARD_POINT = (50 << 16) | 250
@@ -55,6 +57,14 @@ class Event():
 
         win32api.SendMessage(self.hwnd, win32con.WM_LBUTTONDOWN, 1, ITEM_POINTS[index]) 
         win32api.SendMessage(self.hwnd, win32con.WM_LBUTTONUP, 0, ITEM_POINTS[index])
+        time.sleep(0.3)
+
+        win32api.SendMessage(self.hwnd, win32con.WM_LBUTTONDOWN, 1, SELL_OK_POINT) 
+        win32api.SendMessage(self.hwnd, win32con.WM_LBUTTONUP, 0, SELL_OK_POINT)
+        time.sleep(0.5)
+
+        win32api.SendMessage(self.hwnd, win32con.WM_LBUTTONDOWN, 1, SELL_OK_POINT2) 
+        win32api.SendMessage(self.hwnd, win32con.WM_LBUTTONUP, 0, SELL_OK_POINT2)
         time.sleep(0.3)
 
     def Tune(self):
