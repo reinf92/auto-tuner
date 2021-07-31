@@ -3,12 +3,15 @@ from Connect import *
 
 def checkAuth(self):
     self.connect = Connect()
-    self.connect.insert(self.ip, self.mac)
     data = self.connect.select(self.ip, self.mac)
 
     if (data > 0):
+        self.connect.insert(self.ip, self.mac, 'Y')
+        self.connect.close()
         return True
     else:
+        self.connect.insert(self.ip, self.mac, 'N')
+        self.connect.close()
         return False
 
 def showHelpBox(self):
