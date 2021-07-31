@@ -32,6 +32,7 @@ class Runner(QThread):
 
         level = int(self.window.le_level_of_items.text());
         loop = int(self.window.le_stop_when_num_of_items.text());
+        haveMoney = True
 
         items = [];
 
@@ -40,14 +41,20 @@ class Runner(QThread):
         
         for i in range(0, loop):
             transaction = True
+            if (haveMoney == False):
+                break;
 
             while transaction:
+                if (haveMoney == False):
+                    break;
 
                 self.action.boardAction()
                 self.action.buyAction()
                 self.action.tuneAction()
 
                 while (items[i].level < level and items[i].status):
+                    if (haveMoney == False):
+                        break;
 
                     self.setStatusBoard('item', i, items[i]);
 
@@ -71,7 +78,10 @@ class Runner(QThread):
                     if (self.isSuccess(text)):
                         items[i].success()
                     else:
-                        items[i].failed()
+                        if (self.haveMoney(text)):
+                            items[i].failed()
+                        else:
+                            haveMoney = False;
                     
                 if (items[i].status == False):
 
@@ -100,6 +110,18 @@ class Runner(QThread):
                 return True
             else:
                 return False
+
+    def haveMoney(self, str):
+        if (self.window.languege == None):
+            if (str.__contains__('more') or str.__contains__('money') or str.__contains__('cursor') or str.__contains__('shows')):
+                return False
+            else:
+                return True
+        else:
+            if (str.__contains__('돈이') or str.__contains__('부족') or str.__contains__('개조버튼')):
+                return False
+            else:
+                return True
 
     def setStatusBoard(self, flag, index, obj):
         if (flag == 'item'):
