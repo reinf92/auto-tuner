@@ -5,9 +5,7 @@ COST = 33
 class Item():
 
     def __init__(self):
-        self.level = 1
-        self.durability = MAX_DURABILITY
-        self.status = True
+        self.reset()
 
     def reset(self):
         self.level = 1
