@@ -31,7 +31,6 @@ class Application(QtWidgets.QMainWindow):
             else:
                 QMessageBox.about(self, '안내', '등록되지 않은 사용자입니다.\nreinf92@naver.com로 문의주세요.')
         
-        
     def btnStopClick(self):
         layeredControl(self)
         resetLables(self)

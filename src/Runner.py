@@ -87,20 +87,7 @@ class Runner(QThread):
                     self.setStatusBoard('item', i, items[i]);
                     transaction = False
 
-        self.window.btn_start.setDisabled(True)
-        self.window.btn_stop.setDisabled(False)
-        self.window.btn_help.setDisabled(True)
-        self.window.btn_languege.setDisabled(True)
-        self.window.rd_one.setDisabled(True)
-        self.window.rd_two.setDisabled(True)
-        self.window.rd_three.setDisabled(True)
-        self.window.rd_four.setDisabled(True)
-        self.window.rd_five.setDisabled(True)
-        self.window.le_level_of_items.setDisabled(True)
-        self.window.le_stop_when_num_of_items.setDisabled(True)
-        self.window.le_bluestacks_name.setDisabled(True)
-
-        QMessageBox.about(self.window, "알림", "개조가 완료되었습니다.")
+        layeredControl(self.window)
 
     def isSuccess(self, str):
         if (self.window.languege == None):
