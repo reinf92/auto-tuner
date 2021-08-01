@@ -49,6 +49,7 @@ def changeLanguege(self):
         self.gb_trunk.setTitle(_translate("MainWindow", "Trunk"))
         self.gb_failed.setTitle(_translate("MainWindow", "Failed"))
         self.lb_bluestacks_name.setText(_translate("MainWindow", "BlueStacks Name"))
+        self.statusBar().showMessage(_translate("MainWindow", "Warning: Do not minimize the bluestacks. && Turn off the screen saver."))
         self.languege = None
     else:
         self.setWindowTitle(_translate("MainWindow", "자동 개조 프로그램"))
@@ -68,6 +69,7 @@ def changeLanguege(self):
         self.gb_trunk.setTitle(_translate("MainWindow", "인벤토리"))
         self.gb_failed.setTitle(_translate("MainWindow", "실패 수"))
         self.lb_bluestacks_name.setText(_translate("MainWindow", "블루스택 이름"))
+        self.statusBar().showMessage(_translate("MainWindow", "주의: 블루스택 창을 최소화 하지마세요. & 화면보호기를 해제해주세요."))
         self.languege = "kor"
 
 def layeredControl(self):
