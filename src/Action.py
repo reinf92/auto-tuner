@@ -81,3 +81,11 @@ class Action:
         win32api.SendMessage(self.window.contentHwnd, win32con.WM_LBUTTONDOWN, 1, BOARD_POINT) 
         win32api.SendMessage(self.window.contentHwnd, win32con.WM_LBUTTONUP, 0, BOARD_POINT)
         time.sleep(0.3)
+
+        win32api.SendMessage(self.window.contentHwnd, win32con.WM_LBUTTONDOWN, 1, BOARD_POINT) 
+        win32api.SendMessage(self.window.contentHwnd, win32con.WM_LBUTTONUP, 0, BOARD_POINT)
+        time.sleep(0.3)
+        
+        win32api.SendMessage(self.window.contentHwnd, win32con.WM_LBUTTONDOWN, 1, BOARD_POINT) 
+        win32api.SendMessage(self.window.contentHwnd, win32con.WM_LBUTTONUP, 0, BOARD_POINT)
+        time.sleep(0.3)

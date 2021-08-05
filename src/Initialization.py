@@ -316,7 +316,7 @@ def initLayout(self):
     self.le_bluestacks_name.setObjectName("le_bluestacks_name")
 
     self.help = QtWidgets.QDialog()
-    self.help.resize(955, 510)
+    self.help.resize(960, 515)
     self.help.lb_memo = QtWidgets.QLabel('블루스택 사이즈를 이 대화 상자와 동일하게 맞추어주세요!!!!!', self.help)
     self.help.lb_memo.setGeometry(QtCore.QRect(50, 50, 500, 20))
     self.help.lb_memo.setObjectName("help.lb_memo1")
