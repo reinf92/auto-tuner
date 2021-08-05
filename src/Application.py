@@ -1,4 +1,5 @@
 import sys
+from typing import Text
 from Initialization import *
 from Event import *
 from PyQt5 import QtWidgets
@@ -42,6 +43,9 @@ class Application(QtWidgets.QMainWindow):
 
     def btnLanguegeClick(self):
         changeLanguege(self)
+
+    def sliderChange(self, value):
+        self.sliderValue = value
 
 if __name__ == '__main__':
    app = QtWidgets.QApplication(sys.argv)

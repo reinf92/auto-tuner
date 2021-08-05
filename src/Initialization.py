@@ -9,6 +9,7 @@ def initValues(self):
     self.status = "start"
     self.ip = get("https://api.ipify.org").text
     self.mac = getmac.get_mac_address()
+    self.sliderValue = 1
 
     _translate = QtCore.QCoreApplication.translate
 
@@ -314,6 +315,14 @@ def initLayout(self):
     self.le_bluestacks_name = QtWidgets.QLineEdit(self)
     self.le_bluestacks_name.setGeometry(QtCore.QRect(190, 140, 90, 20))
     self.le_bluestacks_name.setObjectName("le_bluestacks_name")
+
+    self.slider = QtWidgets.QSlider(QtCore.Qt.Horizontal, self)
+    self.slider.setGeometry(QtCore.QRect(310, 140, 100, 20))
+    self.slider.setObjectName("slider")
+    self.slider.setRange(1, 5)
+    self.slider.setTickInterval(1)
+    self.slider.setTickPosition(QtWidgets.QSlider.TicksAbove)
+    self.slider.valueChanged.connect(self.sliderChange);
 
     self.help = QtWidgets.QDialog()
     self.help.resize(960, 515)
