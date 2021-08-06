@@ -22,7 +22,8 @@ class Action:
 
     def __init__(self, window):
         self.window = window
-        self.delay = window.sliderValue;
+        self.setDelay(window.sliderValue)
+        
         if (self.window.storeLocation == 1):
             self.window.storePoint = SHOP_POINT1
         elif (self.window.storeLocation == 2):
@@ -33,6 +34,18 @@ class Action:
             self.window.storePoint = SHOP_POINT4
         else:
             self.window.storePoint = SHOP_POINT5
+
+    def setDelay(self, val):
+        if (val == 1):
+            self.delay = 1
+        elif (val == 2):
+            self.delay = 1.25
+        elif (val == 3):
+            self.delay = 1.5
+        elif (val == 4):
+            self.delay = 1.75
+        elif (val == 5):
+            self.delay = 2
 
     def buyAction(self):
         win32api.SendMessage(self.window.contentHwnd, win32con.WM_LBUTTONDOWN, 1, BUY_POINT) 
