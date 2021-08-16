@@ -3,14 +3,14 @@ from Connect import *
 
 def checkAuth(self):
     self.connect = Connect()
-    data = self.connect.select(self.ip, self.mac)
+    data = self.connect.selectUser(self.ip, self.mac)
 
     if (data > 0):
-        self.connect.insert(self.ip, self.mac, 'Y')
+        self.connect.insertUseHistory(self.ip, self.mac)
         self.connect.close()
         return True
     else:
-        self.connect.insert(self.ip, self.mac, 'N')
+        self.connect.insertNotAuthorized(self.ip, self.mac)
         self.connect.close()
         return False
 

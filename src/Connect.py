@@ -12,16 +12,21 @@ class Connect:
         )
         self.curs = self.conn.cursor()
 
-    def select(self, ip, mac):
-        sql = 'SELECT IP, MAC FROM TB_NETWORK WHERE IP = %s AND MAC = %s'
+    def selectUser(self, ip, mac):
+        sql = 'SELECT ip, mac FROM tb_user WHERE ip = %s AND mac = %s'
         self.curs.execute(sql,(ip, mac))
         data = self.curs.fetchall()
         
         return len(data)
 
-    def insert(self, ip, mac, auth):
-        sql = 'INSERT INTO TB_ACCESS_HIS (IP, MAC, REG_DATE, AUTH_YN) VALUES (%s, %s, DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL 9 HOUR), %s)'
-        self.curs.execute(sql,(ip, mac, auth))
+    def insertUseHistory(self, ip, mac):
+        sql = 'INSERT INTO tb_use_history (ip, mac, reg_date) VALUES (%s, %s, CURRENT_TIMESTAMP())'
+        self.curs.execute(sql,(ip, mac))
+        self.conn.commit()
+
+    def insertNotAuthorized(self, ip, mac):
+        sql = 'INSERT INTO tb_not_authorized (ip, mac, reg_date) VALUES (%s, %s, CURRENT_TIMESTAMP())'
+        self.curs.execute(sql,(ip, mac))
         self.conn.commit()
 
     def close(self):
