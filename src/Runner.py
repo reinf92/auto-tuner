@@ -1,4 +1,3 @@
-import cv2
 import os
 import numpy
 import win32gui
@@ -6,6 +5,7 @@ import time
 import pytesseract
 import win32ui
 
+from cv2 import imwrite
 from PIL import Image
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
@@ -70,7 +70,7 @@ class Runner(QThread):
 
                     imageNumpy = numpy.array(image)
                     filename = "{}.png".format(os.getpid())
-                    cv2.imwrite(filename, imageNumpy)
+                    imwrite(filename, imageNumpy)
                     text = pytesseract.image_to_string(Image.open(filename), lang=self.window.languege)
                     os.remove(filename)
                     time.sleep(0.5)            
@@ -98,7 +98,7 @@ class Runner(QThread):
                     transaction = False
 
         if (self.window.afterExec == 2):
-            os.system("shutdown -s -t 0")
+            os.system("shutdown -s -f")
 
         layeredControl(self.window)
 

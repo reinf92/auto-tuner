@@ -11,6 +11,7 @@ def initValues(self):
     self.ip = get("https://api.ipify.org").text
     self.mac = getmac.get_mac_address()
     self.sliderValue = 1
+    self.ver = "auto-tuner-v2.1.0"
 
     _translate = QtCore.QCoreApplication.translate
 

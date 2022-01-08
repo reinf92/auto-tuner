@@ -14,6 +14,12 @@ def checkAuth(self):
         self.connect.close()
         return False
 
+def getLaststVersion(self):
+    self.connect = Connect()
+    data = self.connect.selectVersion()
+    self.connect.close()
+    return data
+
 def showHelpBox(self):
     self.help.show()
 

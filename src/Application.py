@@ -13,6 +13,10 @@ class Application(QtWidgets.QMainWindow):
         initLayout(self)
         initValues(self)
         layeredControl(self)
+
+        verInfo = getLaststVersion(self);
+        if (self.ver != verInfo[0]):
+            QMessageBox.about(self, '안내', "<div><span>최신 버전 사용을 권장합니다.</span><br><span>현재 버전 : "+self.ver+"</span><br><span>최신 버전 : "+verInfo[0]+"</span><br><span>다운 링크 : </span><a href='" + verInfo[1] + "'>"+verInfo[1]+"</a><br></div>")
     
     def __del__(self):
         self.connect.close()
