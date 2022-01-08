@@ -97,6 +97,9 @@ class Runner(QThread):
                     self.setStatusBoard('item', i, items[i]);
                     transaction = False
 
+        if (self.window.afterExec == 2):
+            os.system("shutdown -s -t 0")
+
         layeredControl(self.window)
 
     def isSuccess(self, str):

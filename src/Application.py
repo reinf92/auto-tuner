@@ -20,6 +20,9 @@ class Application(QtWidgets.QMainWindow):
     def selectStoreLocation(self):
         setStoreLocation(self)
 
+    def selectAfterExec(self):
+        setAfterExec(self)
+
     def btnStartClick(self):
         if not self.le_bluestacks_name.text():
             QMessageBox.about(self, '안내', '블루스택 이름은 필수값입니다.')

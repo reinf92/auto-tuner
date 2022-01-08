@@ -29,6 +29,12 @@ def setStoreLocation(self):
     elif self.rd_five.isChecked():
         self.storeLocation = 5
 
+def setAfterExec(self):
+    if self.rd_none.isChecked():
+        self.afterExec = 1
+    elif self.rd_exit.isChecked():
+        self.afterExec = 2
+
 def changeLanguege(self):
     _translate = QtCore.QCoreApplication.translate       
     if(self.languege == "kor"):
@@ -39,11 +45,14 @@ def changeLanguege(self):
         self.lb_level_of_items.setText(_translate("MainWindow", "Level of items"))
         self.lb_stop_when_num_of_items.setText(_translate("MainWindow", "Stop when num of items"))
         self.gb_store_location.setTitle(_translate("MainWindow", "Store Locations"))
+        self.gb_after_exec.setTitle(_translate("MainWindow", "Workflow after tune"))
         self.rd_one.setText(_translate("MainWindow", "1st"))
         self.rd_two.setText(_translate("MainWindow", "2nd"))
         self.rd_three.setText(_translate("MainWindow", "3rd"))
         self.rd_four.setText(_translate("MainWindow", "4th"))
         self.rd_five.setText(_translate("MainWindow", "5th"))
+        self.rd_none.setText(_translate("MainWindow", "None"))
+        self.rd_exit.setText(_translate("MainWindow", "Shutdown the Computer"))
         self.btn_languege.setText(_translate("MainWindow", "Change Languege"))
         self.btn_help.setText(_translate("MainWindow", "Help"))
         self.gb_trunk.setTitle(_translate("MainWindow", "Trunk"))
@@ -59,11 +68,14 @@ def changeLanguege(self):
         self.lb_level_of_items.setText(_translate("MainWindow", "아이템 레벨"))
         self.lb_stop_when_num_of_items.setText(_translate("MainWindow", "아이템 개수"))
         self.gb_store_location.setTitle(_translate("MainWindow", "아이템 위치"))
+        self.gb_after_exec.setTitle(_translate("MainWindow", "개조 완료 후 작업"))
         self.rd_one.setText(_translate("MainWindow", "1번"))
         self.rd_two.setText(_translate("MainWindow", "2번"))
         self.rd_three.setText(_translate("MainWindow", "3번"))
         self.rd_four.setText(_translate("MainWindow", "4번"))
         self.rd_five.setText(_translate("MainWindow", "5번"))
+        self.rd_none.setText(_translate("MainWindow", "없음"))
+        self.rd_exit.setText(_translate("MainWindow", "컴퓨터 종료"))
         self.btn_languege.setText(_translate("MainWindow", "언어 변경"))
         self.btn_help.setText(_translate("MainWindow", "도움말"))
         self.gb_trunk.setTitle(_translate("MainWindow", "인벤토리"))
