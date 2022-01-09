@@ -14,9 +14,8 @@ class Application(QtWidgets.QMainWindow):
         initValues(self)
         layeredControl(self)
 
-        verInfo = getLaststVersion(self);
-        if (self.ver != verInfo[0]):
-            QMessageBox.about(self, '안내', "<div><span>최신 버전 사용을 권장합니다.</span><br><span>현재 버전 : "+self.ver+"</span><br><span>최신 버전 : "+verInfo[0]+"</span><br><span>다운 링크 : </span><a href='" + verInfo[1] + "'>"+verInfo[1]+"</a><br></div>")
+        if (self.ver != self.lastst_ver):
+            QMessageBox.about(self, '안내', "<div><span>최신 버전 사용을 권장드립니다.</span><br><br><span>현재 버전 : "+self.ver+"</span><br><span>최신 버전 : <a href='" + self.lastst_ver_link + "'>"+self.lastst_ver+"</a></span></div>")
     
     def __del__(self):
         self.connect.close()
@@ -47,6 +46,9 @@ class Application(QtWidgets.QMainWindow):
 
     def btnHelpClick(self):
         showHelpBox(self)
+
+    def btnVersionClick(self):
+        showVersionBox(self)
 
     def btnLanguegeClick(self):
         changeLanguege(self)

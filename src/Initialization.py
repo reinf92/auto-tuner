@@ -2,6 +2,7 @@ import getmac
 
 from requests import get
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Event import *
 
 def initValues(self):
     self.storeLocation = 1
@@ -11,7 +12,11 @@ def initValues(self):
     self.ip = get("https://api.ipify.org").text
     self.mac = getmac.get_mac_address()
     self.sliderValue = 1
-    self.ver = "auto-tuner-v2.1.0"
+    self.ver = "auto-tuner-v2.1.1"
+
+    self.verInfo = getLaststVersion(self);
+    self.lastst_ver = self.verInfo[0]
+    self.lastst_ver_link = self.verInfo[1]
 
     _translate = QtCore.QCoreApplication.translate
 
@@ -38,6 +43,7 @@ def initValues(self):
 
     self.setWindowTitle(_translate("MainWindow", "자동 개조 프로그램"))
     self.help.setWindowTitle(_translate("MainWindow", "도움말"))
+    self.version.setWindowTitle(_translate("MainWindow", "버전 정보"))
     self.btn_stop.setText(_translate("MainWindow", "정지"))
     self.btn_start.setText(_translate("MainWindow", "시작"))
     self.lb_level_of_items.setText(_translate("MainWindow", "아이템 레벨"))
@@ -53,10 +59,16 @@ def initValues(self):
     self.rd_exit.setText(_translate("MainWindow", "컴퓨터 종료"))
     self.btn_languege.setText(_translate("MainWindow", "언어 변경"))
     self.btn_help.setText(_translate("MainWindow", "도움말"))
+    self.btn_version.setText(_translate("MainWindow", "버전 정보"))
     self.gb_trunk.setTitle(_translate("MainWindow", "인벤토리"))
     self.gb_failed.setTitle(_translate("MainWindow", "실패 수"))
     self.lb_bluestacks_name.setText(_translate("MainWindow", "블루스택 이름"))
     self.statusBar().showMessage(_translate("MainWindow", "주의: 블루스택 창을 최소화 하지마세요. & 화면보호기를 해제해주세요."))
+
+    self.version.lb_current_version.setText('<span>현재 버전 : '+self.ver+'</span>')
+    self.version.lb_lastst_version.setTextFormat(QtCore.Qt.TextFormat.RichText)
+    self.version.lb_lastst_version.setText('<span>최신 버전 : <a href="'+self.lastst_ver_link+'">'+self.lastst_ver+'</a></span>')
+    self.version.lb_lastst_version.setOpenExternalLinks(True);
     
 def initLayout(self):
     icon = QtGui.QIcon()
@@ -153,6 +165,13 @@ def initLayout(self):
     self.btn_help.setFont(font)
     self.btn_help.setObjectName("btn_help")
     self.btn_help.clicked.connect(self.btnHelpClick)
+    self.btn_version = QtWidgets.QPushButton(self)
+    self.btn_version.setGeometry(QtCore.QRect(310, 205, 170, 25))
+    font = QtGui.QFont()
+    font.setFamily("Malgun Gothic")
+    self.btn_version.setFont(font)
+    self.btn_version.setObjectName("btn_version")
+    self.btn_version.clicked.connect(self.btnVersionClick)
     self.gb_trunk = QtWidgets.QGroupBox(self)
     self.gb_trunk.setGeometry(QtCore.QRect(310, 15, 100, 105))
     self.gb_trunk.setObjectName("gb_trunk")
@@ -353,6 +372,16 @@ def initLayout(self):
     self.help.lb_email = QtWidgets.QLabel('reinf92@naver.com', self.help)
     self.help.lb_email.setGeometry(QtCore.QRect(820, 480, 200, 20))
     self.help.lb_email.setObjectName("help.lb_email")
+
+    self.version = QtWidgets.QDialog()
+    self.version.resize(270, 150)
+    self.version.lb_current_version = QtWidgets.QLabel('현재 버전 : ', self.version)
+    self.version.lb_current_version.setGeometry(QtCore.QRect(50, 50, 500, 20))
+    self.version.lb_current_version.setObjectName("help.lb_current_version")
+
+    self.version.lb_lastst_version = QtWidgets.QLabel('최신 버전 : ', self.version)
+    self.version.lb_lastst_version.setGeometry(QtCore.QRect(50, 70, 500, 20))
+    self.version.lb_lastst_version.setObjectName("help.lb_lastst_version")
     
     self.items = [self.lb_item1, self.lb_item2, self.lb_item3, self.lb_item4, self.lb_item5, self.lb_item6, self.lb_item7, self.lb_item8]
     self.failures = [self.lb_failure1, self.lb_failure2, self.lb_failure3, self.lb_failure4, self.lb_failure5, self.lb_failure6, self.lb_failure7]

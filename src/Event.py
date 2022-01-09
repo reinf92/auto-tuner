@@ -23,6 +23,9 @@ def getLaststVersion(self):
 def showHelpBox(self):
     self.help.show()
 
+def showVersionBox(self):
+    self.version.show()
+
 def setStoreLocation(self):
     if self.rd_one.isChecked():
         self.storeLocation = 1
@@ -46,6 +49,7 @@ def changeLanguege(self):
     if(self.languege == "kor"):
         self.setWindowTitle(_translate("MainWindow", "Auto Tune Program"))
         self.help.setWindowTitle(_translate("MainWindow", "Help"))
+        self.version.setWindowTitle(_translate("MainWindow", "Version"))
         self.btn_stop.setText(_translate("MainWindow", "Stop"))
         self.btn_start.setText(_translate("MainWindow", "Start"))
         self.lb_level_of_items.setText(_translate("MainWindow", "Level of items"))
@@ -61,6 +65,7 @@ def changeLanguege(self):
         self.rd_exit.setText(_translate("MainWindow", "Shutdown the Computer"))
         self.btn_languege.setText(_translate("MainWindow", "Change Languege"))
         self.btn_help.setText(_translate("MainWindow", "Help"))
+        self.btn_version.setText(_translate("MainWindow", "Version"))
         self.gb_trunk.setTitle(_translate("MainWindow", "Trunk"))
         self.gb_failed.setTitle(_translate("MainWindow", "Failed"))
         self.lb_bluestacks_name.setText(_translate("MainWindow", "BlueStacks Name"))
@@ -69,6 +74,7 @@ def changeLanguege(self):
     else:
         self.setWindowTitle(_translate("MainWindow", "자동 개조 프로그램"))
         self.help.setWindowTitle(_translate("MainWindow", "도움말"))
+        self.version.setWindowTitle(_translate("MainWindow", "버전 정보"))
         self.btn_stop.setText(_translate("MainWindow", "정지"))
         self.btn_start.setText(_translate("MainWindow", "시작"))
         self.lb_level_of_items.setText(_translate("MainWindow", "아이템 레벨"))
@@ -84,6 +90,7 @@ def changeLanguege(self):
         self.rd_exit.setText(_translate("MainWindow", "컴퓨터 종료"))
         self.btn_languege.setText(_translate("MainWindow", "언어 변경"))
         self.btn_help.setText(_translate("MainWindow", "도움말"))
+        self.btn_version.setText(_translate("MainWindow", "버전 정보"))
         self.gb_trunk.setTitle(_translate("MainWindow", "인벤토리"))
         self.gb_failed.setTitle(_translate("MainWindow", "실패 수"))
         self.lb_bluestacks_name.setText(_translate("MainWindow", "블루스택 이름"))
